@@ -8,6 +8,7 @@
     font-family: Chloe;
     src: url("fonts/Chloe\ Mate.otf");
 }
+
 @font-face {
     font-family: CrimsonText;
     src: url("fonts/CrimsonText-Bold.ttf");
@@ -43,10 +44,11 @@
     padding: 2% 1vw;
 }
 
+/*carrusel*/
 #carrusel {
-
-    border: 20px double #000000;
-    background-color: rgb(255, 255, 255);
+    max-height: 30vw;
+    border: 15px double #8a3300;
+    background-color: rgb(97, 7, 7);
 }
 
 .carousel-caption {
@@ -65,26 +67,90 @@
     font-family: Chloe;
 }
 
+/*Regiistro*/
 #ingresar {
     margin-top: 4%;
 }
 
-#footer{
-    color: white;
-    background-color: #690000;
-}
-
-#footer a{
-   text-decoration: none;
-   color: white;
+#ingresar h4 {
+    font-family: CrimsonText;
+    font-size: 2vw;
 }
 
 
 /*Footer*/
-#footer p,  #footer h5{
+#footer {
+    color: white;
+    background-color: #690000;
+    bottom: 0;
+}
+
+#footer a {
+    text-decoration: none;
+    color: white;
+}
+
+#footer p,
+#footer h5 {
     font-family: CrimsonText;
 }
 
-#footer h5{
+#footer h5 {
     text-decoration: underline;
 }
+
+#footer .logo {
+    width: 8vw;
+}
+
+/*Alertas*/
+.swal2-popup {
+    color: #690000;
+    border-radius: 94px 94px 94px 94px;
+    -webkit-border-radius: 94px 94px 94px 94px;
+    -moz-border-radius: 94px 94px 94px 94px;
+}
+
+.swal2-actions {
+    background-color: #690000;
+    color: white;
+}
+
+.saludo {
+    width: 40vw;
+    height: 50%;
+    padding: 2dvw;
+}
+
+.saludo h2 {
+    font-family: CrimsonText;
+    color: #690000;
+    letter-spacing: .15em;
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+}
+
+.serror {
+    background-color: #FFF;
+    color: #690000;
+}
+
+.serror h2 {
+    font-family: CrimsonText;
+}
+
+
+/*Tamaños de pantalla*/
+
+@media (max-width: 780px) {
+    #carrusel {
+        max-height: 50vw;
+    }
+    #footer .logo {
+        width: 30vw;
+    }
+    .swal2-popup {
+       width: 100%;
+    }
+}
+
+ 

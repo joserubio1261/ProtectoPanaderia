@@ -1,0 +1,475 @@
+/*Fuentes*/
+@font-face {
+    font-family: Themunday;
+    src: url("fonts/Themundayfreeversion-Regular.ttf");
+}
+
+@font-face {
+    font-family: CrimsonText;
+    src: url("fonts/CrimsonText-Bold.ttf");
+}
+
+@font-face {
+    font-family: Kelano;
+    src: url("fonts/Kelano\ Remora.otf");
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+/*Animaciones*/
+@keyframes letras {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#header h1 span,
+#header h2 span {
+    display: inline-block;
+    opacity: 0;
+    animation: letras 0.2s ease forwards;
+}
+
+#header h1 span:nth-child(1){
+    animation-delay: 0.1s;
+}
+#header h2 span:nth-child(1) {
+    animation-delay: 1.4s;
+}
+
+#header h1 span:nth-child(2){
+    animation-delay: 0.3s;
+}
+#header h2 span:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+#header h1 span:nth-child(3){
+    animation-delay: 0.5s;
+}
+#header h2 span:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+#header h1 span:nth-child(4){
+    animation-delay: 0.7s;
+}
+#header h2 span:nth-child(4) {
+    animation-delay: 1.7s;
+}
+
+#header h1 span:nth-child(5){
+    animation-delay: 0.9s;
+}
+#header h2 span:nth-child(5) {
+    animation-delay: 1.8s;
+}
+
+#header h1 span:nth-child(6){
+    animation-delay: 1.1s;
+}
+#header h2 span:nth-child(6) {
+    animation-delay: 1.9s;
+}
+
+#header h1 span:nth-child(7){
+    animation-delay: 1.2s;
+}
+#header h2 span:nth-child(7) {
+    animation-delay: 2s;
+}
+
+#header h2 span:nth-child(8) {
+    animation-delay: 2.1s;
+}
+
+#header h2 span:nth-child(9) {
+    animation-delay: 2.2s;
+}
+
+#header h2 span:nth-child(10) {
+    animation-delay: 2.3s;
+}
+
+#header h2 span:nth-child(11) {
+    animation-delay: 2.4s;
+}
+
+#header h2 span:nth-child(12) {
+    animation-delay: 2.5s;
+}
+
+#header h2 span:nth-child(13) {
+    animation-delay: 2.6s;
+}
+
+#header h2 span:nth-child(14) {
+    animation-delay: 2.7s;
+}
+
+#header h2 span:nth-child(15) {
+    animation-delay: 2.8s;
+}
+
+#header h2 span:nth-child(16) {
+    animation-delay: 2.9s;
+}
+#header h2 span:nth-child(17) {
+    animation-delay: 3s;
+}
+
+#header h2 span:nth-child(18) {
+    animation-delay: 3.1s;
+}
+
+#header h2 span:nth-child(19) {
+    animation-delay: 3.2s;
+}
+
+#header h2 span:nth-child(20) {
+    animation-delay: 3.3s;
+}
+
+#header h2 span:nth-child(21) {
+    animation-delay: 3.4s;
+}
+
+#header h2 span:nth-child(22) {
+    animation-delay: 3.5s;
+}
+
+#header h2 span:nth-child(23) {
+    animation-delay: 3.6s;
+}
+
+#header h2 span:nth-child(24) {
+    animation-delay: 3.7s;
+}
+
+#header h2 span:nth-child(25) {
+    animation-delay: 3.8s;
+}
+
+#header h2 span:nth-child(26) {
+    animation-delay: 3.9s;
+}
+
+
+#header h2 span:nth-child(27) {
+    animation-delay: 4s;
+}
+
+
+#header h2 span:nth-child(28) {
+    animation-delay: 4.1s;
+}
+
+@keyframes img {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeInImg {
+    opacity: 0;
+    animation: img 6s ease-in-out forwards;
+}
+
+.animated-image {
+    opacity: 0;
+    transform: translateX(-50px); /* Mueve la imagen hacia la izquierda inicialmente */
+    transition: opacity 4s ease, transform 2s ease;
+}
+
+/* Agrega una clase para mostrar las imágenes cuando estén en la vista */
+.animated-image.visible {
+    opacity: 1;
+    transform: translateX(0); /* Mueve la imagen de vuelta a su posición original */
+}
+
+
+/*Header*/
+header {
+    background-image: url("../images/otros/rubfond_blanco.png");
+    background-size: 130vw;
+    background-repeat: no-repeat;
+    color: rgb(0, 0, 0);
+    height: 50vw;
+    font-family: Themunday;
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #000000 0px 0px 20px, #000000 0px 0px 30px, #000000 0px 0px 40px, #000000 0px 0px 50px, #000000 0px 0px 75px, 2px 2px 2px rgba(206, 0, 0, 0);
+}
+
+
+header h1 {
+    width: 60vw;
+    height: 10vw;
+    margin: 2vw 0vw 0vw 1vw;
+    font-size: 14vw;
+}
+
+header h2 {
+    width: 40vw;
+    margin: -3vw 0vw 0vw 1.5vw;
+    font-size: 2vw;
+}
+
+header img {
+    margin-top: 1vw;
+    float: right;
+    width: 20vw;
+}
+
+/*Section*/
+section {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../images/otros/sectfond.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0vw 0vw 3vw 0vw;
+}
+
+section .sec1 {
+    background-color: rgb(0, 0, 5);
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 5vw;
+}
+
+section .sec1 h1 {
+    font-size: 6vw;
+}
+
+#sect_h2 {
+    margin-top: 5vw;
+}
+
+.text_sect p {
+    font-size: 1vw;
+    padding: 0vw 2vw 2vw 2vw;
+}
+
+.t2 {
+    margin-left: 5vw;
+    background-color: white;
+    border-radius: 2vw;
+    width: 30vw;
+}
+
+.t1 {
+    margin-left: 2vw;
+    background-color: white;
+    border-radius: 2vw;
+    width: 30vw;
+}
+
+section h2 {
+    margin-top: 2vw;
+    font-family: CrimsonText;
+    padding: 1vw 2vw 0vw 2vw;
+    font-size: 2.5vw;
+    text-shadow: 0 1px #808d93, -1px 0 #cdd2d5, -1px 2px #808d93, -2px 1px #cdd2d5, -2px 3px #808d93, -3px 2px #cdd2d5, -3px 4px #808d93, -4px 3px #cdd2d5, -4px 5px #808d93, -5px 4px #cdd2d5, -5px 6px #808d93, -6px 5px #cdd2d5, -6px 7px #808d93, -7px 6px #cdd2d5, -7px 8px #808d93, -8px 7px #cdd2d5;
+}
+
+section img {
+    width: 40vw;
+    margin-left: 2vw;
+    margin-top: 2vw;
+    border-radius: 2vw;
+    -webkit-box-shadow: 28px 22px 17px 5px rgba(255, 255, 255, 0.68);
+    -moz-box-shadow: 28px 22px 17px 5px rgba(255, 255, 255, 0.68);
+    box-shadow: 28px 22px 17px 5px rgba(255, 255, 255, 0.68);
+}
+
+section p {
+    font-size: 2vw;
+}
+
+/*Footer*/
+.footer {
+    color: #fff;
+    padding: 50px 0;
+    font-family: Kelano;
+    background-image: url("../images/otros/rubfond_blanco.png");
+    background-size: cover;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+
+.footer h3 {
+    color: #fff;
+}
+
+.footer p {
+    margin-bottom: 20px;
+}
+
+/* Estilos para el formulario de contacto */
+footer .container {
+    background-color: rgb(87, 87, 87);
+    padding: 2vw;
+    border: 5px solid #000000;
+    -webkit-box-shadow: 28px 35px 38px 0px rgba(0, 0, 102, 0.75);
+    -moz-box-shadow: 28px 35px 38px 0px rgba(0, 0, 102, 0.75);
+    box-shadow: 28px 35px 38px 0px rgba(0, 0, 102, 0.75);
+    border-radius: 2vw;
+}
+
+.footer form input[type="text"],
+.footer form input[type="email"],
+.footer form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.footer form input[type="text"]:focus,
+.footer form input[type="email"]:focus,
+.footer form textarea:focus {
+    outline: none;
+    border-color: #fff;
+}
+
+.footer form .btn-primary {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.footer form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.footer li {
+    font-size: 1vw;
+}
+
+footer h3 {
+    font-size: 2vw;
+    text-shadow: 5px 5px 0 black;
+}
+
+footer p {
+    font-size: 1vw;
+}
+
+footer b {
+    color: #fffbfb;
+    font-size: 1vw;
+}
+
+footer .map{
+    margin-top: 2vw ;
+    list-style-type: none;
+}
+
+iframe{
+    margin-left: -1vw;
+    width:100%; 
+}
+
+/*Resposive*/
+@media screen and (max-width: 995px) {
+    header h2 {
+        margin-top: 4vw;
+    }
+
+    .footer p,
+    .footer li {
+        font-size: 1.5vw;
+    }
+
+    footer b {
+        font-size: 2vw;
+    }
+
+}
+
+@media screen and (max-width: 765px) {
+    #form_footer {
+        margin-top: 3vw;
+    }
+
+    .footer p,
+    .footer li {
+        font-size: 2vw;
+    }
+     
+}
+
+@media screen and (max-width: 576px) {
+
+    .t1,
+    .t2,
+    section img {
+        width: 100%;
+        margin: 5px 0px;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-lg-6,
+    header h1,
+    header h2 {
+        width: 100%;
+    }
+
+    .col-lg-6:nth-child(odd) {
+        order: 2;
+    }
+
+    .col-lg-6:nth-child(even) {
+        order: 1;
+    }
+
+    header h2 {
+        margin-top: 8vw;
+        font-size: 4.5vw;
+    }
+
+    header {
+        background-size: 200vw;
+    }
+
+    header h1 {
+        font-size: 18vw;
+    }
+
+    section p {
+        font-size: 3vw;
+    }
+
+    section .p_info {
+        font-size: 2vw;
+    }
+
+    section h2 {
+        font-size: 5vw;
+    }
+
+    .btn-group-vertical>.btn,
+    .btn-group>.btn {
+        font-size: 3.5vw;
+    }
+
+    footer b {
+        font-size: 2.5vw;
+    }
+     
+}
