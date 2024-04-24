@@ -1,9 +1,7 @@
 <?php
-include("registro.php");
-if (isset($_POST['submit'])) {
-	include("registro.php");
-}
+require_once "authentication.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,7 +14,8 @@ if (isset($_POST['submit'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 	<!-- Estilos Personalizado CSS -->
-	<link rel="stylesheet" href="../css//estilo_propio.css" />
+	<link rel="stylesheet" href="../css/estilo_propio.css" />
+
 	<!-- bootstrap & fontawesome -->
 	<link rel="stylesheet" href="../css/bootstrap.min.css" />
 	<link rel="stylesheet" href="../css/ace-rtl.min.css" />
@@ -24,11 +23,10 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="../css/ace.min.css" />
 	<!-- SweetAlert2 -->
 	<link rel="stylesheet" href="../plugins/sweetAlert2/dist/sweetalert2.min.css" />
-	
+
 	<!--[if lte IE 9]>
 			<link rel="stylesheet" href="../css/ace-part2.min.css" />
 		<![endif]-->
-	<link rel="stylesheet" href="../css/ace-rtl.min.css" />
 	<!--iconos de fontawesome-->
 	<script src="https://kit.fontawesome.com/7a3144b989.js" crossorigin="anonymous"></script>
 
@@ -130,7 +128,7 @@ if (isset($_POST['submit'])) {
 
 							<div class="space-6"></div>
 
-							<form action="<?php $_SERVER["PHP_SELF"]; ?>" method="POST">
+							<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
 								<fieldset>
 									<label class="block clearfix">
 										<span class="block input-icon input-icon-right">
@@ -154,12 +152,10 @@ if (isset($_POST['submit'])) {
 											<span class="lbl"> Recordarme</span>
 										</label>
 
-										<button type="submit" class="width-35 btn btn-sm btn-info col-6">
+										<button type="submit" class="width-35 btn btn-sm btn-info col-6" name="submit">
 											<i class="fa-solid fa-baguette"></i>
 											<span class="bigger-110">Ingresar</span>
 										</button>
-
-
 									</div>
 
 									<div class="space-4"></div>
@@ -253,20 +249,25 @@ if (isset($_POST['submit'])) {
 							<div class="widget-body">
 								<div class="widget-main">
 									<h4 class="header green lighter bigger">
-										<i class="ace-icon fa fa-users blue"></i>
+										<i class="fa-solid fa-user blue" style="margin-bottom: 0.3vw;"></i>
 										Registro de Nuevos Usuarios
 									</h4>
 									<div class="space-6"></div>
 									<p>Ingresa los datos solicitados acontinuacion: </p>
-									<form action="<?php $_SERVER["PHP_SELF"]; ?>" method="POST">
+									<form action="registro.php" method="post" enctype="multipart/form-data">
 										<fieldset>
+											<label class="block clearfix">
+												<span class="block input-icon input-icon-right">
+													<input type="file" name="imagen_perfil" accept="image/*" required onchange="mostrarImagenSeleccionada(this)" />
+													<img id="imagen_seleccionada" src="#" alt="Imagen seleccionada" style="max-width: 100px; max-height: 100px;">
+												</span>
+											</label>
 											<label class="block clearfix">
 												<span class="block input-icon input-icon-right">
 													<input type="text" class="form-control" name="nombre" placeholder="Nombre Completo" required />
 													<i class="ace-icon fa fa-users"></i>
 												</span>
 											</label>
-
 											<label class="block clearfix">
 												<span class="block input-icon input-icon-right">
 													<input type="email" class="form-control" name="correo" placeholder="Email" required />
@@ -275,7 +276,7 @@ if (isset($_POST['submit'])) {
 											</label>
 											<label class="block clearfix">
 												<span class="block input-icon input-icon-right">
-													<input type="tel" class="form-control" name="telefono" placeholder="Numero Teléfono" required />
+													<input type="tel" class="form-control" name="telefono" pattern="[0-9]{9}" title="El número de teléfono debe ser de 9 dígitos." required />
 													<i class="ace-icon fa fa-phone"></i>
 												</span>
 											</label>
@@ -287,20 +288,18 @@ if (isset($_POST['submit'])) {
 											</label>
 											<label class="block clearfix">
 												<span class="block input-icon input-icon-right">
-													<input type="password" class="form-control" name="pass" placeholder="Password" required id="pass1" />
+													<input type="password" class="form-control" id="pass1" name="pass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="La contraseña debe contener al menos una mayúscula, una minúscula y un número, y tener al menos 8 caracteres." required />
 													<i class="ace-icon fa fa-lock"></i>
 												</span>
 											</label>
-
 											<label class="block clearfix">
 												<span class="block input-icon input-icon-right">
-													<input type="password" class="form-control" name="passr" placeholder="Repetir password" id="pass2" />
+													<input type="password" class="form-control" name="passr" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$" title="La contraseña debe contener al menos una mayúscula, una minúscula y un número, y tener al menos 8 caracteres." placeholder="Repetir password" id="pass2" required />
 													<i class="ace-icon fa fa-retweet"></i>
 												</span>
 											</label>
-
 											<label class="block">
-												<input type="checkbox" class="ace" />
+												<input type="checkbox" class="ace" required />
 												<span class="lbl">
 													Acepto los
 													<a href="#">Terminos de Uso</a>
@@ -312,7 +311,6 @@ if (isset($_POST['submit'])) {
 													<i class="ace-icon fa fa-refresh"></i>
 													<span class="bigger-110">Reset</span>
 												</button>
-
 												<button type="submit" name="registrar" class="width-65 pull-right btn btn-sm btn-success">
 													<span class="bigger-110">Registrar</span>
 													<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
@@ -320,6 +318,7 @@ if (isset($_POST['submit'])) {
 											</div>
 										</fieldset>
 									</form>
+
 								</div>
 
 								<div class="toolbar center">
@@ -334,8 +333,10 @@ if (isset($_POST['submit'])) {
 			</div>
 		</div>
 
-		<!--Cargar JQuery -->
-		<script src="../js/jquery-2.1.4.min.js"></script>
+		<!-- Bibiloteca SweetAlert2-->
+		<script src="../plugins/sweetAlert2/dist/sweetalert2.min.js"></script>
+		<script src="../js/saludo.js"></script>
+
 
 		<!--Version JQuery de Internet Explorer-->
 		<!--[if IE]>
@@ -346,6 +347,8 @@ if (isset($_POST['submit'])) {
 		<script type="text/javascript">
 			if ('ontouchstart' in document.documentElement) document.write("<script src='../js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
 		</script>
+		<!--Cargar JQuery -->
+		<script src="../js/jquery-2.1.4.min.js"></script>
 
 		<!--Mostrar/Ocultarnuevo registro o olvide mi contraseña -->
 		<script type="text/javascript">
@@ -357,6 +360,19 @@ if (isset($_POST['submit'])) {
 					$(target).addClass('visible'); //Mostrar objeto
 				});
 			});
+
+			function mostrarImagenSeleccionada(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+
+					reader.onload = function(e) {
+						document.getElementById('imagen_seleccionada').src = e.target.result;
+						document.getElementById('imagen_seleccionada').style.display = 'block';
+					}
+
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
 		</script>
 		<!--Cargar bootstrap.js -->
 		<script src="../js/bootstrap.min.js"></script>
@@ -373,8 +389,8 @@ if (isset($_POST['submit'])) {
 					<div class="col-lg-2 col-md-3 col-sm-2 mb-4 mb-md-0">
 						<ul class="list-unstyled mb-0">
 							<li>
-								<a target="_blank" href="../../index.php"><img class="logo" src="../images/otros/LogoT.png" alt=""></a>
-							</li> 	
+								<a href="../../index.php"><img class="logo" src="../images/otros/LogoT.png" alt=""></a>
+							</li>
 						</ul>
 					</div>
 					<!--Grid column-->
@@ -396,6 +412,15 @@ if (isset($_POST['submit'])) {
 							</li>
 						</ul>
 					</div>
+					<div class="col-lg-2 col-md-3 col-sm-2 mb-4 mb-md-0">
+						<h5 class="text-uppercase">Encuantranos Aqui</h5>
+
+						<ul class="list-unstyled mb-0">
+							<li>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1296.3826565469656!2d-0.41477533304418035!3d39.3939274121536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604dd2c1d5a2b5%3A0xa3e4d9f16f752fff!2sHorno%20Pasteler%C3%ADa%20San%20Roque!5e0!3m2!1ses!2ses!4v1713091140916!5m2!1ses!2ses" width="400" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</li>
+						</ul>
+					</div>
 				</div>
 				<!--Grid row-->
 			</section>
@@ -413,12 +438,10 @@ if (isset($_POST['submit'])) {
 
 	</div>
 
+	<script>
 
-	<!-- Bibiloteca SweetAlert2-->
-	<script src="../plugins/sweetAlert2/dist/sweetalert2.min.js"></script>
-	<script src="../js/saludo.js"></script>
-	<!-- JavaScrip Personalizado-->
-	<script src="../js/funciones_personalizadas.js"></script>
+	</script>
+
 
 
 </body>

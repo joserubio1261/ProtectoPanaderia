@@ -68,16 +68,16 @@
 }
 
 /*Regiistro*/
-#ingresar {
-    margin-top: 4%;
-}
+
 
 #ingresar h4 {
     font-family: CrimsonText;
-    font-size: 2vw;
+    font-size: 1.7vw;
 }
 
-
+#imagen_seleccionada{
+    float: right;
+}
 /*Footer*/
 #footer {
     color: white;
@@ -127,6 +127,15 @@
     color: #690000;
     letter-spacing: .15em;
     text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    background-color: #690000 !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:hover {
+    background-color: #ffffff !important;
+    color: black;
 }
 
 .serror {

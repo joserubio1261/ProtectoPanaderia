@@ -1,52 +1,71 @@
 <?php
-//Consexion con la base de datos
-include("conexion.php");
+// Incluye el archivo de la clase de conexión
+require_once "../clases/Conexion.php";
+require_once "../clases/RolesC.php";
+require_once "funciones.php";
 
-//registro
+
+// Registro de usuarios
 if (isset($_POST["registrar"])) {
-    $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
-    $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
-    $telefono = mysqli_real_escape_string($conexion, $_POST['telefono']);
-    $usuario = mysqli_real_escape_string($conexion, $_POST['user']);
-    $password = mysqli_real_escape_string($conexion, $_POST['pass']);
-    $passwordrepit = mysqli_real_escape_string($conexion, $_POST['passr']);
-    $password_encriptada = sha1($password);
-    $rolCliente = "4";
-    $sqluser = "SELECT usuario FROM usuarios 
-                WHERE usuario = '$usuario'";
-    $resultadouser = $conexion->query($sqluser);
-    $filas = $resultadouser->num_rows;
-    $userExists = true;
-   
+    // Obtener los datos del formulario
+    $conexion = new Conexion();
+    $nombre = mysqli_real_escape_string($conexion->obtenerConexion(), $_POST['nombre']);
+    $correo = mysqli_real_escape_string($conexion->obtenerConexion(), $_POST['correo']);
+    $telefono = mysqli_real_escape_string($conexion->obtenerConexion(), $_POST['telefono']);
+    $usuario = mysqli_real_escape_string($conexion->obtenerConexion(), $_POST['user']);
+    $password = mysqli_real_escape_string($conexion->obtenerConexion(), $_POST['pass']);
+    $passwordrepit = mysqli_real_escape_string($conexion->obtenerConexion(), $_POST['passr']);
 
+    // Obtener el ID del rol "Cliente"  
+    $rolCliente = RolesC::obtenerIdPorNombre("Cliente");
+
+    // Verificar si las contraseñas coinciden
     if ($password != $passwordrepit) {
-        echo "<script>
-                alert('Las contraseñas son diferentes');
-                event.preventDefault();
-             </script>";
-        
+        mostrarMensajeError("Las contraseñas son diferentes", "forn.php");
     } else {
-        if ($filas > 0) {
-            echo "<script> 
-                    alert('El usuario ya existe');
-                    event.preventDefault();
-                 </script>";
-        } else {
-            //insertar informacion del registro
-            $sqlusuario = "INSERT INTO usuarios(nom_completo,email,telefono,usuario,password,id_rol)
-						   VALUES ('$nombre',' $correo',' $telefono','$usuario','$password_encriptada','$rolCliente')";
-            $resultadousuario = $conexion->query($sqlusuario);
-            if ($resultadousuario > 0) {
-                echo "<script>
-                        alert('Te has registrado correctamente');
-                        event.preventDefault();
-                     </script>"; 
+        // Directorio donde se guardarán las imágenes de perfil
+        $directorio_destino = "../images/perfiles/";
+
+        // Verificar si se ha subido la imagen
+        if (isset($_FILES['imagen_perfil']['tmp_name']) && !empty($_FILES['imagen_perfil']['tmp_name'])) {
+            $nombre_archivo = $_FILES['imagen_perfil']['name'];
+            $ruta_archivo = $directorio_destino . $nombre_archivo;
+            // Mover la imagen de perfil al directorio de destino
+            if (move_uploaded_file($_FILES['imagen_perfil']['tmp_name'], $ruta_archivo)) {
+                // Encriptar la contraseña
+                $password_encriptada = password_hash($password, PASSWORD_DEFAULT);
+
+                // Insertar usuario en la base de datos
+                $stmt = $conexion->obtenerConexion()->prepare("INSERT INTO usuarios (id_rol, nombre_completo, nombre_usuario, contrasena, correo, telefono, imagen) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("issssss", $rolCliente, $nombre, $usuario, $password_encriptada, $correo, $telefono, $ruta_archivo);
+
+                if ($stmt->execute()) {
+                    mostrarMensajeExito("Te has registrado correctamente", "forn.php");
+                } else {
+                    mostrarMensajeError("Error de registro", "forn.php");
+                }
             } else {
-                echo "<script>
-                        alert('Error de registro');
-                        event.preventDefault();   
-                     </script>";
+                mostrarMensajeError("Error al subir la imagen de perfil", "forn.php");
             }
+        } else {
+            mostrarMensajeError("Debes seleccionar una imagen de perfil", "forn.php");
         }
     }
 }
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+
+<body>
+    <div id="alert"></div>
+</body>
+
+</html>

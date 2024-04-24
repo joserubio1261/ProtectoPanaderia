@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RubFood - Soluciones de Punto de Venta</title>
+    <link rel="icon" type="image/png" href="assets/images/otros/Logo_grande.png">
     <link rel="stylesheet" href="assets/css/estilo_rubfood.css">
     <script src="assets/js/popper.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
@@ -24,7 +25,7 @@
                 <img class="fadeInImg show" src="assets/images/otros/LogoT.png" alt="">
             </div>
             <div class="col-lg-12">
-                <h2><span>D</span><span>i</span><span>s</span><span>e</span><span>ñ</span><span>o</span><span>&nbsp;</span><span>W</span><span>e</span><span>b</span><span>&nbsp; </span><span>c</span><span>o</span><span>n</span><span>&nbsp; </span><span>O</span><span>p</span><span>c</span><span>i</span><span>ó</span><span>n</span><span> &nbsp;</span><span>d</span><span>e</span><span> &nbsp;</span><span>P</span><span>O</span><span>S</span></h2>
+                <h2 class="animacion">Diseño Web con Opción de POS</h2>
             </div>
         </div>
     </header>
@@ -54,14 +55,14 @@
             </div>
             <div class="col-lg-6 col-sm-6 col-xs-12 text_sect animated-image">
                 <div class="t1">
-                    <h2>Diseño personalizado</h2>
-                    <p class="p_info">En Rubfood entendemos la importancia de tener una página web única y atractiva. Nuestro equipo de diseñadores trabajará contigo para crear un sitio web que refleje la identidad y los valores de tu empresa. Podrás elegir entre una amplia variedad de estilos y elementos visuales para asegurarte de que tu sitio web sea exactamente como lo imaginas.</p>
+                    <h2>Diseño Web</h2>
+                    <p class="p_info">En Rubfood comprendemos la importancia de una identidad en línea distintiva. Nuestro equipo de diseñadores colaborará contigo para crear un sitio web que refleje los valores de tu empresa y ofrezca una experiencia de compra intuitiva y atractiva. Además de un diseño visualmente atractivo, integramos soluciones de punto de venta (POS) para facilitar la gestión de transacciones en línea.</p>
                 </div>
             </div>
             <div class="text_sect col-sm-6 col-xs-12 col-lg-6 animated-image">
                 <div class="t2">
-                    <h2 id="sect_h2">Fácil de usar</h2>
-                    <p class="p_info">No necesitas conocimientos técnicos para crear tu página web con Rubfood. Nuestra plataforma intuitiva te guiará paso a paso en el proceso de creación, para que puedas tener tu sitio web listo en poco tiempo. Además, nuestro equipo estará disponible para responder a cualquier pregunta que puedas tener y brindarte el apoyo necesario para asegurarte de que tengas una experiencia fluida y exitosa.</p>
+                    <h2>Gestión Intuitiva</h2>
+                    <p class="p_info">Con Rubfood, no necesitas ser un experto técnico para crear y administrar tu sitio web. Nuestra plataforma fácil de usar te guiará paso a paso en el proceso de creación y gestión. Desde la personalización del diseño hasta la actualización del inventario y la gestión de pedidos, todo se realiza de manera sencilla e intuitiva. Además, nuestra integración de POS facilita la administración de tu negocio en línea.</p>
                 </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-xs-12">
@@ -72,10 +73,11 @@
             </div>
             <div class="col-lg-6 col-sm-6 col-xs-12 text_sect animated-image">
                 <div class="t1">
-                    <h2 id="sect_h2">Soporte técnico</h2>
-                    <p class="p_info">En Rubfood, estamos comprometidos a brindarte el mejor servicio. Si tienes alguna pregunta o necesitas ayuda, nuestro equipo de soporte técnico estará disponible para asistirte en todo momento. Ya sea que necesites ayuda con la configuración inicial de tu sitio web, tengas preguntas sobre cómo actualizar contenido o encuentres algún problema técnico, estaremos aquí para ayudarte a resolverlo rápidamente.</p>
+                    <h2>Soporte Técnico</h2>
+                    <p class="p_info">En Rubfood, no solo te proporcionamos una excelente plataforma para crear tu presencia en línea, sino que también te respaldamos con un equipo de soporte técnico especializado. Desde la configuración inicial hasta la resolución de problemas técnicos, nuestro equipo estará disponible para ayudarte en cualquier momento. Con nuestra experiencia en integración de POS, te ofrecemos un soporte completo para que tu negocio en línea funcione sin problemas.</p>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Footer -->
