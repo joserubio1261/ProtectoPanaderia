@@ -20,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host = 'smtp.gmail.com'; // servidor SMTP 
         $mail->Port = 465; // Puerto SMTP  
         $mail->SMTPAuth = true;
-        $mail->Username = 'joserubiohidalgo@gmail.com'; // Tu nombre de usuario SMTP 
-        $mail->Password = 'uwcv sonj cgvc qhgg'; // Tu contraseña SMTP 
+        $mail->Username = 'tu direccion gmail'; // Tu nombre de usuario SMTP 
+        $mail->Password = 'contraseña app'; // Tu contraseña SMTP 
         $mail->SMTPSecure = 'ssl'; //  TLS es el protocolo de seguridad recomendado por 000webhost
-        $mail->setFrom('joserubiohidalgo@gmail.com', 'JoseRubio'); // correo electrónico y tu nombre
+        $mail->setFrom('tu correo', 'nombre'); // correo electrónico y tu nombre
         $mail->addAddress($correo); // dirección de correo del destinatario
         $mail->isHTML(true); // Establece el formato del correo electrónico como HTML
         $mail->CharSet = 'UTF-8';  // Establecer la codificación de caracteres a UTF-8
